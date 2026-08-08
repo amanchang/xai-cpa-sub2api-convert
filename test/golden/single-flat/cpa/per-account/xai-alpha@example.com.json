@@ -1,0 +1,21 @@
+{
+  "type": "xai",
+  "auth_kind": "oauth",
+  "email": "alpha@example.com",
+  "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiIsImtpZCI6InRlc3Qta2V5In0.eyJpc3MiOiJodHRwczovL2F1dGgueC5haSIsInN1YiI6IjExMTExMTExLTExMTEtNDExMS04MTExLTExMTExMTExMTExMSIsImF1ZCI6ImIxYTAwNDkyLTA3M2EtNDdlYS04MTZmLTRjMzI5MjY0YTgyOCIsImV4cCI6MjAwMDAwMDAwMCwiaWF0IjoxOTk5OTc4NDAwLCJzY29wZSI6Im9wZW5pZCBwcm9maWxlIGVtYWlsIG9mZmxpbmVfYWNjZXNzIGdyb2stY2xpOmFjY2VzcyBhcGk6YWNjZXNzIiwicHJpbmNpcGFsX3R5cGUiOiJVc2VyIiwicHJpbmNpcGFsX2lkIjoiMTExMTExMTEtMTExMS00MTExLTgxMTEtMTExMTExMTExMTExIiwiY2xpZW50X2lkIjoiYjFhMDA0OTItMDczYS00N2VhLTgxNmYtNGMzMjkyNjRhODI4IiwianRpIjoianRpLTExMTExMTExLTExMTEtNDExMS04MTExLTExMTExMTExMTExMSIsInRlYW1faWQiOiJhYWFhYWFhYS0xMTExLTQxMTEtODExMS1hYWFhYWFhYWFhYWEiLCJyZWZlcnJlciI6InRlc3QtZml4dHVyZSJ9.c2lnbmF0dXJlLXBsYWNlaG9sZGVy",
+  "refresh_token": "rt_11111111_fixture",
+  "token_type": "Bearer",
+  "expired": "2033-05-18T03:33:20Z",
+  "last_refresh": "2033-05-17T21:33:20Z",
+  "base_url": "https://cli-chat-proxy.grok.com/v1",
+  "headers": {
+    "X-XAI-Token-Auth": "xai-grok-cli"
+  },
+  "disabled": false,
+  "account_id": "https://auth.x.ai::11111111-1111-4111-8111-111111111111",
+  "user_id": "11111111-1111-4111-8111-111111111111",
+  "sub": "11111111-1111-4111-8111-111111111111",
+  "team_id": "aaaaaaaa-1111-4111-8111-aaaaaaaaaaaa",
+  "oidc_client_id": "b1a00492-073a-47ea-816f-4c329264a828",
+  "scope": "openid profile email offline_access grok-cli:access api:access"
+}

@@ -1,0 +1,3 @@
+# sha256 of vendored assets. Verified by test/run.mjs and CI.
+# upstream: fflate 0.8.2 MIT, https://unpkg.com/fflate@0.8.2/esm/browser.js
+e29b414841595276f373c39b2842acc7d3339ffe34032f84172dc20014aba342  fflate.min.mjs

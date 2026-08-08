@@ -1,0 +1,26 @@
+{
+  "input": "test/fixtures/array.json",
+  "outdir": "C:\\Users\\user\\AppData\\Local\\Temp\\legacy-xai\\out\\limit1",
+  "target": "cpa",
+  "mode": "merged",
+  "source_records_seen": 3,
+  "accounts_converted": 1,
+  "skipped": {
+    "incomplete": 0,
+    "duplicate": 0,
+    "excluded": 0,
+    "expired": 0
+  },
+  "cpa_per_account_files": 0,
+  "sub2api_per_account_files": 0,
+  "merged_files": [
+    "C:\\Users\\user\\AppData\\Local\\Temp\\legacy-xai\\out\\limit1\\cpa\\cpa-xai-merged-1.json"
+  ],
+  "warnings": {
+    "access_token_already_expired": 0,
+    "missing_team_id": 0,
+    "missing_principal_id": 0
+  },
+  "sub2api_base_url": "https://cli-chat-proxy.grok.com/v1",
+  "file_stamp": "20260808T182236Z"
+}

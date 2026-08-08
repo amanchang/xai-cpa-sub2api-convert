@@ -2,7 +2,9 @@
 
 [繁體中文](README.md) ｜ [简体中文](README.zh-CN.md) ｜ **English**
 
-![version](https://img.shields.io/badge/version-1.0.0-blue)
+🌐 **Online converter (no install, data never leaves your browser)**: <https://amanchang.github.io/xai-cpa-sub2api-convert/>
+
+![version](https://img.shields.io/badge/version-1.1.0-blue)
 ![node](https://img.shields.io/badge/node-18%2B-339933)
 ![deps](https://img.shields.io/badge/dependencies-0-brightgreen)
 ![license](https://img.shields.io/badge/license-MIT-green)
@@ -1619,6 +1621,7 @@ Where are you importing to?
 | `--skip-expired` | flag (no value needed) | off | Drop accounts whose access token has already expired |
 | `--exclude-emails` | file path or comma list | none | Exclude these emails (avoids double deployment) |
 | `--sub2api-base-url` | URL | `https://cli-chat-proxy.grok.com/v1` | Override Sub2API's `credentials.base_url` |
+| `--on-invalid` | `abort` \| `skip` | `abort` | Abort the whole batch on the first invalid record (`abort`), or skip it and list the reason in the report (`skip`) |
 
 ### The design of argument parsing
 
@@ -2009,7 +2012,7 @@ The AI will work out which `--target` / `--mode` combination to use and whether 
 | **MINOR** | A new input shape or a new argument is added | Backwards compatible; old commands still work |
 | **PATCH** | Typos or edge-case behaviour fixed | Upgrade without noticing |
 
-Current version: **1.0.0**
+Current version: **1.1.0**
 
 ---
 

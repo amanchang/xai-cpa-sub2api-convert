@@ -1,0 +1,12 @@
+{
+  "exported_at": "2026-08-08T18:22:33Z",
+  "format": "CLIProxyAPI xAI OAuth",
+  "label": "xai",
+  "count": 3,
+  "import_hint": "POST /v0/management/auth-files (multipart file=@xai-<email>.json), one file per account",
+  "files": [
+    "xai-alpha@example.com.json",
+    "xai-bravo@example.com.json",
+    "xai-charlie@example.com.json"
+  ]
+}

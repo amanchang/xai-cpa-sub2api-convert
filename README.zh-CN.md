@@ -2,7 +2,9 @@
 
 [繁體中文](README.md) ｜ **简体中文** ｜ [English](README.en.md)
 
-![version](https://img.shields.io/badge/version-1.0.0-blue)
+🌐 **在线转换页（不用安装、数据不离开浏览器）**：<https://amanchang.github.io/xai-cpa-sub2api-convert/>
+
+![version](https://img.shields.io/badge/version-1.1.0-blue)
 ![node](https://img.shields.io/badge/node-18%2B-339933)
 ![deps](https://img.shields.io/badge/dependencies-0-brightgreen)
 ![license](https://img.shields.io/badge/license-MIT-green)
@@ -1621,6 +1623,7 @@ node scripts/convert_xai_auth.mjs --input ./export --outdir ./out > report.json
 | `--skip-expired` | 旗标（不用给值） | 关 | 丢掉 access token 已过期的账号 |
 | `--exclude-emails` | 文件路径或逗号清单 | 无 | 排除这些 email（避免重复部署） |
 | `--sub2api-base-url` | URL | `https://cli-chat-proxy.grok.com/v1` | 覆写 Sub2API 的 `credentials.base_url` |
+| `--on-invalid` | `abort` \| `skip` | `abort` | 遇到不合格记录时中止整批（`abort`），或跳过该笔并在报告列出原因（`skip`） |
 
 ### 参数解析的设计
 
@@ -2012,7 +2015,7 @@ AI 会自己判断该用什么 `--target` / `--mode` 组合、要不要加 `--ex
 | **MINOR** | 新增输入形状、新增参数 | 向下兼容，旧指令照样能跑 |
 | **PATCH** | 修错字、修边界行为 | 无感升级 |
 
-目前版本：**1.0.0**
+目前版本：**1.1.0**
 
 ---
 

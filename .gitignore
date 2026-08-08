@@ -15,3 +15,8 @@ SHA256SUMS
 samples-private/
 .DS_Store
 Thumbs.db
+
+# synthetic test assets must stay in the repo
+!test/**
+!test/fixtures/**
+!test/golden/**

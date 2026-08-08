@@ -3,6 +3,26 @@
 本專案遵循 [Semantic Versioning](https://semver.org/lang/zh-TW/)。
 This project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.1.0] - 2026-08-09
+
+### Added
+
+- 線上轉換頁面：`docs/` 可透過 GitHub Pages 發佈，在瀏覽器內完成轉換，不上傳任何資料。
+- `docs/core.mjs`：CLI 與網頁共用的單一轉換核心。兩者邏輯同步，不可能漂移。
+- `--on-invalid skip|abort`：CLI 預設 `abort`（任一筆不合格即中止），網頁預設 `skip`（寬鬆模式）。
+- `counts.unrecognized`：統計讀到但無法識別為帳號的節點數。舊版靜默丟棄，新版回報計數。
+
+### Changed
+
+- 核心移植為純函式 ESM，無 `fs` / DOM / network / `process` 依賴。
+- CLI 薄殼化：`scripts/convert_xai_auth.mjs` 只處理檔案 IO 與參數，所有轉換邏輯在 `core.mjs`。
+- 測試覆蓋 15 個 golden case（15 組輸入 × 對應參數）、錯誤路徑、時間精度、隱私遮罩、原始碼隱私掃描、i18n 完整性。
+
+### Security
+
+- 網頁零對外請求；fflate 內嵌固定版本並驗證 SHA256；轉換分塊執行不凍結 UI。
+- 不預覽成功帳號清單、不顯示任何 token 值或片段；失敗記錄的 email 遮罩為 `b****@example.com`。
+
 ## [1.0.0] - 2026-08-08
 
 ### Added

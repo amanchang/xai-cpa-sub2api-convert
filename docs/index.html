@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-i18n="meta.title">xAI CPA Sub2API Converter</title>
+<meta name="description" data-i18n-attr="content:meta.description" content="">
+<meta name="color-scheme" content="light dark">
+<meta name="robots" content="index,follow">
+<link rel="stylesheet" href="app.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%237c3aed'/%3E%3Cpath d='M11 11l10 10M21 11L11 21' stroke='white' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
+</head>
+<body>
+<div class="wrap">
+
+<header class="topbar">
+  <div class="brand">
+    <span class="mark" aria-hidden="true">
+      <svg width="30" height="30" viewBox="0 0 32 32" fill="none"><rect x="1" y="1" width="30" height="30" rx="9" stroke="currentColor" stroke-width="2"/><path d="M11 11l10 10M21 11L11 21" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+    </span>
+    <div>
+      <h1 data-i18n="app.name">xAI CPA Sub2API Converter</h1>
+      <p data-i18n="app.tagline"></p>
+    </div>
+  </div>
+  <span class="spacer"></span>
+  <div class="langs" role="group" aria-label="Language">
+    <button type="button" data-lang="zh-TW" aria-pressed="false">繁中</button>
+    <button type="button" data-lang="zh-CN" aria-pressed="false">简中</button>
+    <button type="button" data-lang="en" aria-pressed="false">EN</button>
+  </div>
+  <a class="ghlink" href="https://github.com/amanchang/xai-cpa-sub2api-convert" rel="noopener">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38v-1.34c-2.23.49-2.7-1.07-2.7-1.07-.36-.93-.89-1.18-.89-1.18-.73-.5.05-.49.05-.49.81.06 1.23.83 1.23.83.72 1.23 1.88.87 2.34.67.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .66-.21 2.2.82a7.6 7.6 0 0 1 4 0c1.53-1.03 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48v2.2c0 .21.15.46.55.38A8 8 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+    <span data-i18n="nav.github">GitHub</span>
+  </a>
+</header>
+
+<section class="card privacy">
+  <div class="row">
+    <span class="lock" aria-hidden="true">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="10" width="16" height="11" rx="2.5"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+    </span>
+    <div>
+      <strong data-i18n="privacy.title"></strong>
+      <p data-i18n="privacy.body"></p>
+      <details>
+        <summary data-i18n="privacy.verify"></summary>
+        <ol>
+          <li data-i18n="privacy.verify.1"></li>
+          <li data-i18n="privacy.verify.2"></li>
+          <li data-i18n="privacy.verify.3"></li>
+        </ol>
+      </details>
+    </div>
+  </div>
+</section>
+
+<main>
+<section class="card">
+  <h2 data-i18n="card1.title"></h2>
+  <div class="drop" id="drop" role="button" tabindex="0" aria-describedby="drop-accept">
+    <div class="big" data-i18n="card1.hint"></div>
+    <div class="buttons">
+      <button type="button" class="btn" id="pick-files" data-i18n="card1.pickFiles"></button>
+      <button type="button" class="btn" id="pick-folder" data-i18n="card1.pickFolder"></button>
+    </div>
+    <div class="accept" id="drop-accept" data-i18n="card1.accept"></div>
+  </div>
+  <p class="note" data-i18n="card1.folderNote"></p>
+  <input type="file" id="input-files" class="sr" multiple accept=".json,.jsonl,.txt,application/json,text/plain">
+  <input type="file" id="input-folder" class="sr" webkitdirectory directory multiple>
+  <ul class="files" id="file-list"></ul>
+  <div class="actions hidden" id="file-actions">
+    <button type="button" class="btn small" id="clear-files" data-i18n="card1.clear"></button>
+  </div>
+</section>
+
+<section class="card">
+  <h2 data-i18n="card2.title"></h2>
+
+  <fieldset>
+    <legend data-i18n="card2.target"></legend>
+    <div class="choices cols" id="target-choices">
+      <label class="choice on"><input type="checkbox" name="target" value="cpa" checked><span data-i18n="card2.target.cpa"></span></label>
+      <label class="choice on"><input type="checkbox" name="target" value="sub2api" checked><span data-i18n="card2.target.sub2api"></span></label>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend data-i18n="card2.mode"></legend>
+    <div class="choices cols" id="mode-choices">
+      <label class="choice on"><input type="checkbox" name="mode" value="merged" checked><span data-i18n="card2.mode.merged"></span></label>
+      <label class="choice on"><input type="checkbox" name="mode" value="split" checked><span data-i18n="card2.mode.split"></span></label>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend data-i18n="card2.filters"></legend>
+    <div class="choices" id="filter-choices">
+      <label class="choice"><input type="checkbox" id="skip-expired"><span data-i18n="card2.skipExpired"></span></label>
+    </div>
+  </fieldset>
+
+  <div class="field">
+    <label for="label" data-i18n="card2.label"></label>
+    <input type="text" id="label" value="xai" maxlength="32">
+  </div>
+
+  <fieldset>
+    <legend data-i18n="card2.onInvalid"></legend>
+    <div class="choices cols" id="invalid-choices">
+      <label class="choice on"><input type="radio" name="oninvalid" value="skip" checked><span data-i18n="card2.onInvalid.skip"></span></label>
+      <label class="choice"><input type="radio" name="oninvalid" value="abort"><span data-i18n="card2.onInvalid.abort"></span></label>
+    </div>
+  </fieldset>
+
+  <p class="note" data-i18n="card2.zipNote"></p>
+
+  <div class="actions">
+    <button type="button" class="btn primary" id="run" disabled data-i18n="card2.run"></button>
+  </div>
+</section>
+
+<section class="card hidden" id="result-card" aria-live="polite">
+  <h2 data-i18n="card3.title"></h2>
+
+  <div class="stats">
+    <div class="stat"><span class="k" data-i18n="card3.seen"></span><span class="v" id="stat-seen">0</span></div>
+    <div class="stat ok"><span class="k" data-i18n="card3.ok"></span><span class="v" id="stat-ok">0</span></div>
+    <div class="stat skip"><span class="k" data-i18n="card3.skipped"></span><span class="v" id="stat-skip">0</span></div>
+  </div>
+  <div class="bar"><i id="bar"></i></div>
+
+  <div id="messages"></div>
+
+  <div class="actions hidden" id="download-actions">
+    <a class="btn primary" id="download" download href="#"></a>
+  </div>
+
+  <div class="hidden" id="fail-block">
+    <div class="fail-head">
+      <h3 id="fail-title"></h3>
+      <span class="grow"></span>
+      <button type="button" class="btn small" id="copy-report" data-i18n="card3.copy"></button>
+    </div>
+    <table class="fails">
+      <thead><tr>
+        <th data-i18n="card3.col.source"></th>
+        <th data-i18n="card3.col.position"></th>
+        <th data-i18n="card3.col.email"></th>
+        <th data-i18n="card3.col.reason"></th>
+      </tr></thead>
+      <tbody id="fail-rows"></tbody>
+    </table>
+    <div class="fail-cards" id="fail-cards"></div>
+    <details class="explain">
+      <summary data-i18n="card3.explainTitle"></summary>
+      <ul>
+        <li data-i18n="card3.explain.missing"></li>
+        <li data-i18n="card3.explain.dup"></li>
+        <li data-i18n="card3.explain.unrecognized"></li>
+        <li data-i18n="card3.explain.parse"></li>
+      </ul>
+    </details>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="foot-grid">
+    <div class="foot-card">
+      <h2 data-i18n="footer.other.title"></h2>
+      <a class="swap" href="https://amanchang.github.io/sub2api-auth-converter/" rel="noopener">
+        <span class="mark" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><rect x="1" y="1" width="30" height="30" rx="9" stroke="currentColor" stroke-width="2"/><path d="M9 12h10M9 16h14M9 20h7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+        </span>
+        <span>
+          <strong data-i18n="footer.other.name"></strong>
+          <span data-i18n="footer.other.desc"></span>
+        </span>
+      </a>
+    </div>
+    <div class="foot-card">
+      <h2 data-i18n="footer.source.title"></h2>
+      <ul>
+        <li><a href="https://github.com/amanchang/xai-cpa-sub2api-convert" rel="noopener"><span data-i18n="footer.source.this"></span> ↗</a></li>
+        <li><a href="https://github.com/amanchang/sub2api-auth-converter" rel="noopener"><span data-i18n="footer.source.other"></span> ↗</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="foot-legal" id="foot-legal"></p>
+</footer>
+
+</div>
+<script type="module" src="ui.js"></script>
+</body>
+</html>

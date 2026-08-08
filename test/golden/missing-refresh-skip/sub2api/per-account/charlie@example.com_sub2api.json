@@ -1,0 +1,29 @@
+{
+  "type": "sub2api-data",
+  "version": 1,
+  "exported_at": "2026-08-08T18:22:36Z",
+  "proxies": [],
+  "accounts": [
+    {
+      "name": "charlie@example.com",
+      "platform": "grok",
+      "type": "oauth",
+      "credentials": {
+        "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiIsImtpZCI6InRlc3Qta2V5In0.eyJpc3MiOiJodHRwczovL2F1dGgueC5haSIsInN1YiI6IjMzMzMzMzMzLTMzMzMtNDMzMy04MzMzLTMzMzMzMzMzMzMzMyIsImF1ZCI6ImIxYTAwNDkyLTA3M2EtNDdlYS04MTZmLTRjMzI5MjY0YTgyOCIsImV4cCI6MjAwMDAwMDAwMCwiaWF0IjoxOTk5OTc4NDAwLCJzY29wZSI6Im9wZW5pZCBwcm9maWxlIGVtYWlsIG9mZmxpbmVfYWNjZXNzIGdyb2stY2xpOmFjY2VzcyBhcGk6YWNjZXNzIiwicHJpbmNpcGFsX3R5cGUiOiJVc2VyIiwicHJpbmNpcGFsX2lkIjoiMzMzMzMzMzMtMzMzMy00MzMzLTgzMzMtMzMzMzMzMzMzMzMzIiwiY2xpZW50X2lkIjoiYjFhMDA0OTItMDczYS00N2VhLTgxNmYtNGMzMjkyNjRhODI4IiwianRpIjoianRpLTMzMzMzMzMzLTMzMzMtNDMzMy04MzMzLTMzMzMzMzMzMzMzMyIsInRlYW1faWQiOiJjY2NjY2NjYy0zMzMzLTQzMzMtODMzMy1jY2NjY2NjY2NjY2MiLCJyZWZlcnJlciI6InRlc3QtZml4dHVyZSJ9.c2lnbmF0dXJlLXBsYWNlaG9sZGVy",
+        "refresh_token": "rt_33333333_fixture",
+        "token_type": "Bearer",
+        "expires_at": "2033-05-18T03:33:20.000Z",
+        "email": "charlie@example.com",
+        "client_id": "b1a00492-073a-47ea-816f-4c329264a828",
+        "base_url": "https://cli-chat-proxy.grok.com/v1"
+      },
+      "extra": {
+        "email": "charlie@example.com"
+      },
+      "concurrency": 1,
+      "priority": 1,
+      "rate_multiplier": 1,
+      "auto_pause_on_expired": true
+    }
+  ]
+}

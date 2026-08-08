@@ -18,6 +18,7 @@ node scripts/convert_xai_auth.mjs \
 ```
 
 Node 18+, no dependencies. The script prints a JSON report and never touches the source.
+The conversion core is `docs/core.mjs`; the CLI and the online page share that single implementation.
 
 ## Options
 
@@ -32,6 +33,7 @@ Node 18+, no dependencies. The script prints a JSON report and never touches the
 | `--skip-expired` | flag | Drop accounts whose access token already expired. |
 | `--exclude-emails` | file or comma list | Skip these emails (avoid re-exporting accounts already deployed elsewhere). |
 | `--sub2api-base-url` | url | Override Sub2API `credentials.base_url`. Default `https://cli-chat-proxy.grok.com/v1`. |
+| `--on-invalid` | `abort` \| `skip` | What to do when a record is missing required fields. Default `abort` (stop the whole batch); `skip` converts the rest and reports each skipped record. |
 
 ## Output layout
 
@@ -86,6 +88,7 @@ Sub2API accounts are emitted with `platform: "grok"`, `type: "oauth"`, `concurre
 - Never write into the input folder; always a separate `--outdir`.
 - Dedupe by `account_id`, falling back to email. Records missing an access or refresh token are skipped and counted.
 - Report counts, paths, and field names only. Never print token, cookie, or password values.
+- The report includes `counts.unrecognized`: nodes that were read but could not be recognized as an account. A non-zero value means part of the input was not in a supported shape.
 - The source export may also contain `password` / `sso` / `session_cookies`. Neither output format uses them; do not copy them into converted files.
 - After conversion, verify: converted count, email set matches the source, JSON parses, and `warnings.access_token_already_expired` is acceptable.
 - Refresh tokens are single-holder. If the same account is imported into more than one runtime, one side will start failing with `invalid_grant` / `Refresh token has been revoked`. Use `--exclude-emails` to keep deployments disjoint.
