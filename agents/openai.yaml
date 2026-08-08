@@ -1,0 +1,3 @@
+display_name: xAI CPA / Sub2API Converter
+short_description: Convert xAI (Grok) account exports to CPA and Sub2API import files.
+default_prompt: Convert the provided xAI/Grok account export into CPA auth files and a Sub2API import payload, both merged and one file per account.

@@ -1,0 +1,17 @@
+node_modules/
+__pycache__/
+*.py[cod]
+
+# never commit real account exports or converted output
+out/
+output/
+cpa/
+sub2api/
+per-account/
+*-sub2api.json
+xai-*.json
+manifest.json
+SHA256SUMS
+samples-private/
+.DS_Store
+Thumbs.db
